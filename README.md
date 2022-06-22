@@ -15,4 +15,4 @@ Input data의 예시를 하나 보여주면 아래와 같은 이미지가 들어
 
 ## Model 구성
 ![2D_CNN_Model_Structure](https://www.mdpi.com/sensors/sensors-21-00951/article_deploy/html/images/sensors-21-00951-g005.png)
-차이가 있다면 끝단에서 출력하는 나오는 Class의 개수가 다르다. 우리는 5개 (N, S, V, F, Q) 를 갖고 했으나 해당 논문에서는 8개로 분류를 진행하였다. 
+차이가 있다면 끝단에서 출력하는 나오는 Class의 개수가 다르다. 우리는 5개 (N, S, V, F, Q) 를 갖고 했으나 해당 논문에서는 8개로 분류를 진행하였다. 거의 사실상 CNN과 Maxpool layer를 통과하여 특징을 뽑아내는데 고급지고 똑똑한 야바위라고 해도 되지 않을까 싶다. Grayscale로 들어가게 되니 결과적으로는 모델이 보는건 이미지의 특징이다.
