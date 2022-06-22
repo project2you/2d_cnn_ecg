@@ -80,6 +80,7 @@ for j in (range(len(record_list))):
             createDirectory(annotation_path)
             save_file_name = annotation_path + str(record_list[j]) + "__" + str(i) + str(pickle_input[1][i]) + ".png"
 
+
             # plt.show()
             plt.savefig(save_file_name)
             plt.clf()
