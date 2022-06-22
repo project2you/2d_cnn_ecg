@@ -44,12 +44,18 @@ with open(DATA_PATH + 'RECORDS') as f:
 
 for i in range(len(record_lines)):
     record_list.append(str(record_lines[i].strip()))
-
+        
 for j in range(len(record_list)):
     temp_path = DATA_PATH + "mit" + record_list[j] + ".pkl"
     with open(temp_path, 'rb') as f:
         pickle_input = pickle.load(f)
         for i in range(len(pickle_input[0])):
+            fig = plt.figure(figsize=[20, 20])
+            ax = fig.add_subplot(111)
+            ax.axes.get_xaxis().set_visible(False)
+            ax.axes.get_yaxis().set_visible(False)
+            ax.set_frame_on(False)
+
             X.append(pickle_input[0][i])
             plt.title(pickle_input[1][i])
             plt.plot(X[-1])
@@ -59,33 +65,30 @@ for j in range(len(record_list)):
             if check_ann == "N":            # Normal
                 temp_ann_list.append(0)
                 annotation_path = SAVE_PATH + str(pickle_input[1][i]) + "/"
-                plt.title(pickle_input[1][i])
 
             elif check_ann == "S":          # Supra-ventricular
                 temp_ann_list.append(1)
                 annotation_path = SAVE_PATH + str(pickle_input[1][i]) + "/"
-                plt.title(pickle_input[1][i])
 
             elif check_ann == "V":          # Ventricular
                 temp_ann_list.append(2)
                 annotation_path = SAVE_PATH + str(pickle_input[1][i]) + "/"
-                plt.title(pickle_input[1][i])
 
             elif check_ann == "F":          # False alarm
                 temp_ann_list.append(3)
                 annotation_path = SAVE_PATH + str(pickle_input[1][i]) + "/"
-                plt.title(pickle_input[1][i])
 
             else:                           # Unclassed 
                 temp_ann_list.append(4)
                 annotation_path = SAVE_PATH + "Q" + "/"
-                plt.title("Q")
             
             createDirectory(annotation_path)
             save_file_name = annotation_path + str(record_list[j]) + "__" + str(i) + str(pickle_input[1][i]) + ".png"
 
+            # plt.show()
             plt.savefig(save_file_name)
             plt.clf()
+            plt.close()
 
         print("[INFO] {}".format(temp_path))
             
