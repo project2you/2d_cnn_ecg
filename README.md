@@ -16,3 +16,23 @@ Input data의 예시를 하나 보여주면 아래와 같은 이미지가 들어
 ## Model 구성
 ![2D_CNN_Model_Structure](https://www.mdpi.com/sensors/sensors-21-00951/article_deploy/html/images/sensors-21-00951-g005.png)
 차이가 있다면 끝단에서 출력하는 나오는 Class의 개수가 다르다. 우리는 5개 (N, S, V, F, Q) 를 갖고 했으나 해당 논문에서는 8개로 분류를 진행하였다. 거의 사실상 CNN과 Maxpool layer를 통과하여 특징을 뽑아내는데 고급지고 똑똑한 야바위라고 해도 되지 않을까 싶다. Grayscale로 들어가게 되니 결과적으로는 모델이 보는건 이미지의 특징이다.
+
+# Result
+## Confusion Matrix
+![Confusion Matrix Fig.1](./docs/fig2.png)
+![Confusion Matrix Fig.2](./docs/fig3.png)
+
+데이터의 비중에 따라 다른 결과 값으로 예상된다. S, F 클래스가 다른 클래스에 비해 확연히 비중이 적다보니 잘 잡아내지 못하는 것으로 생각된다. Summary Report 는 아래와 같다.
+```
+              precision    recall  f1-score   support
+
+       0 = N       0.99      0.99      0.99     20059
+       1 = S       0.94      0.86      0.90       610
+       2 = V       0.95      0.96      0.95      1553
+       3 = F       0.88      0.80      0.84       182
+       4 = Q       0.98      0.98      0.98      2491
+
+    accuracy                           0.99     24895
+   macro avg       0.95      0.92      0.93     24895
+weighted avg       0.99      0.99      0.99     24895
+```
