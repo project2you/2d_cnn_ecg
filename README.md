@@ -36,3 +36,17 @@ Input data의 예시를 하나 보여주면 아래와 같은 이미지가 들어
    macro avg       0.95      0.92      0.93     24895
 weighted avg       0.99      0.99      0.99     24895
 ```
+---
+# GoogLeNet (Inception)
+Inception 을 활용한 GoogLeNet 을 구성하여 2D CNN 모델로 구성하였다. 모델의 Shape 및 크기는 아래와 같이 구성되어 있다.
+![GoogLeNet Shape](./docs/google_net_shape.png)
+## Result
+- Train and Validation Accuracy, Loss
+
+![Train and Validation Loss](./docs/googleNetFig1.png)
+![Train and validation accuracy](./docs/googleNetFig2.png)
+
+- Confusion Matrix
+
+![Confusion Matrix as count](./docs/googleNetFig3.png)
+![Confusion Matrix as ratio](./docs/googleNetFig4.png)
