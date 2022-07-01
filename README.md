@@ -50,3 +50,18 @@ Inception 을 활용한 GoogLeNet 을 구성하여 2D CNN 모델로 구성하였
 
 ![Confusion Matrix as count](./docs/googleNetFig3.png)
 ![Confusion Matrix as ratio](./docs/googleNetFig4.png)
+
+```
+             precision    recall  f1-score   support
+
+       0 = N       0.98      1.00      0.99     20059
+       1 = S       0.91      0.86      0.89       610
+       2 = V       0.97      0.90      0.94      1553
+       3 = F       0.70      0.80      0.75       182
+       4 = Q       0.99      0.94      0.97      2491
+
+    accuracy                           0.98     24895
+   macro avg       0.91      0.90      0.90     24895
+weighted avg       0.98      0.98      0.98     24895
+
+```
