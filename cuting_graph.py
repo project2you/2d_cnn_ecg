@@ -46,7 +46,7 @@ for j in (range(len(record_list))):
     with open(temp_path, 'rb') as f:
         pickle_input = pickle.load(f)
         for i in tqdm(range(len(pickle_input[0]))):
-            fig = plt.figure(figsize=[10, 10])
+            fig = plt.figure(figsize=[2, 2])
             ax = fig.add_subplot(111)
             ax.axes.get_xaxis().set_visible(False)
             ax.axes.get_yaxis().set_visible(False)
