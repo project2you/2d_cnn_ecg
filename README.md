@@ -40,6 +40,13 @@ weighted avg       0.99      0.99      0.99     24895
 # GoogLeNet (Inception)
 Inception 을 활용한 GoogLeNet 을 구성하여 2D CNN 모델로 구성하였다. 모델의 Shape 및 크기는 아래와 같이 구성되어 있다.
 ![GoogLeNet Shape](./docs/google_net_shape.png)
+꽤나 복잡한데 간단히 GoogLeNet과 Inception을 설명을 하고 가면 Inception은 현재 까지 v3 까지 나온 모델이다. 블록 모델처럼 쓰이는데 Inception을 활용한 모델이 GoogLeNet 이다. GoogLeNet != Inception 이니 헷갈리지 않길 바란다.
+
+Inception은 아래와 같이 구성되어 있다.
+
+![Inception](https://cdn.analyticsvidhya.com/wp-content/uploads/2018/10/Screenshot-from-2018-10-17-11-14-10.png)
+
+보이는 바와 같이 Convolution Layer와 MaxPooling Layer의 연속이다. 이를 여러번 합치고 합친 모델이 GoogLeNet 인거고. 영화 Inception 처럼 깊이 들어가고 들어가게 되는데 MaxPooling은 Convolution Layer의 연산량을 줄이기 위함이다. 워낙에 너무 연산량이 많아지면 시간이 너무 오래 걸리게 되면서 이를 줄이기 위한 방법이다.
 ## Result
 - Train and Validation Accuracy, Loss
 
@@ -63,5 +70,31 @@ Inception 을 활용한 GoogLeNet 을 구성하여 2D CNN 모델로 구성하였
     accuracy                           0.98     24895
    macro avg       0.91      0.90      0.90     24895
 weighted avg       0.98      0.98      0.98     24895
+```
 
+## Result
+해당 결과값은 스펙토그램을 입력으로 한 결과 값이다. 기존에는 Raw 그래프 이미지를 넣었던 모델에 스펙토그램으로 변경하였다. GrayScale이 아닌 RGB 그대로 들어간다.
+
+- Train and Validation Accuracy, Loss
+
+![Train and Validation Loss](./docs/spectrogramFig1.png)
+![Train and validation accuracy](./docs/spectrogramFig2.png)
+
+- Confusion Matrix
+
+![Confusion Matrix as count](./docs/spectrogramFig3.png)
+![Confusion Matrix as ratio](./docs/spectrogramFig4.png)
+
+```
+            precision    recall  f1-score   support
+
+       0 = N       0.99      0.99      0.99     20059
+       1 = S       0.92      0.89      0.90       610
+       2 = V       0.94      0.96      0.95      1553
+       3 = F       0.86      0.77      0.81       182
+       4 = Q       0.99      0.99      0.99      2491
+
+    accuracy                           0.99     24895
+   macro avg       0.94      0.92      0.93     24895
+weighted avg       0.99      0.99      0.99     24895
 ```
