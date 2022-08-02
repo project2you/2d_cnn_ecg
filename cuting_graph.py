@@ -8,17 +8,21 @@ import os
 SAVE_PATH = "./graph_data/"
 DATA_PATH = "./mit_data/"
 
+
 def list_to_list(input_list):
     input_list_to_list = list(itertools.chain(*input_list))
     return input_list_to_list
 
 # 경로에 폴더가 없으면 폴더 만들기
+
+
 def createDirectory(directory):
     try:
         if not os.path.exists(directory):
             os.makedirs(directory)
     except OSError:
         print("Error: Failed to create the directory.")
+
 
 record_list = []
 pickle_input = dict()
@@ -30,7 +34,7 @@ with open(DATA_PATH + 'RECORDS') as f:
 
 for i in range(len(record_lines)):
     record_list.append(str(record_lines[i].strip()))
-        
+
 for j in (range(len(record_list))):
     temp_path = DATA_PATH + "mit" + record_list[j] + ".pkl"
     with open(temp_path, 'rb') as f:
@@ -63,13 +67,14 @@ for j in (range(len(record_list))):
                 temp_ann_list.append(3)
                 annotation_path = SAVE_PATH + str(pickle_input[1][i]) + "/"
 
-            else:                           # Unclassed 
+            else:                           # Unclassed
                 temp_ann_list.append(4)
                 annotation_path = SAVE_PATH + "Q" + "/"
-            
-            createDirectory(annotation_path)
-            save_file_name = annotation_path + str(record_list[j]) + "__" + str(i) + str(pickle_input[1][i]) + ".png"
 
+            createDirectory(annotation_path)
+            save_file_name = annotation_path + \
+                str(record_list[j]) + "__" + str(i) + \
+                str(pickle_input[1][i]) + ".png"
 
             # plt.show()
             plt.savefig(save_file_name)
@@ -77,7 +82,7 @@ for j in (range(len(record_list))):
             plt.close()
 
         print("[INFO] {}".format(temp_path))
-            
+
         for z in range(len(pickle_input[1])):
             check_ann = pickle_input[1][z]
             temp_ann_list = list()
@@ -93,8 +98,9 @@ for j in (range(len(record_list))):
             elif check_ann == "F":          # False alarm
                 temp_ann_list.append(3)
 
-            else:                           # Unclassed 
+            else:                           # Unclassed
                 temp_ann_list.append(4)
 
-            print(check_ann + str(record_list[j]) + "__" + str(i) + str(pickle_input[1][i]) + ".png")
+            print(check_ann + str(record_list[j]) + "__" +
+                  str(i) + str(pickle_input[1][i]) + ".png")
             y.append(temp_ann_list)
