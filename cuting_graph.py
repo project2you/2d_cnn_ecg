@@ -74,14 +74,8 @@ for j in range(len(record_list)):
                 annotation_path = SAVE_PATH + "Q" + "/"
 
             createDirectory(annotation_path)
-            save_file_name = (
-                annotation_path
-                + str(record_list[j])
-                + "__"
-                + str(i)
-                + str(pickle_input[1][i])
-                + ".png"
-            )
+            save_file_name = (annotation_path + str(record_list[j]) + "__" +
+                              str(i) + str(pickle_input[1][i]) + ".png")
 
             # plt.show()
             plt.savefig(save_file_name)
@@ -108,12 +102,6 @@ for j in range(len(record_list)):
             else:  # Unclassed
                 temp_ann_list.append(4)
 
-            print(
-                check_ann
-                + str(record_list[j])
-                + "__"
-                + str(i)
-                + str(pickle_input[1][i])
-                + ".png"
-            )
+            print(check_ann + str(record_list[j]) + "__" + str(i) +
+                  str(pickle_input[1][i]) + ".png")
             y.append(temp_ann_list)
