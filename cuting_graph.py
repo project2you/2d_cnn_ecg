@@ -1,16 +1,9 @@
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 import numpy as np
 import itertools
 import pickle
 import os
-
-from sklearn import preprocessing
-from tqdm import tqdm
-
-EPOCH = 200
-KERNEL_SIZE = 3
-POOLING_SIZE = 2
-BATCH_SIZE = 10
 
 SAVE_PATH = "./graph_data/"
 DATA_PATH = "./mit_data/"
@@ -26,9 +19,6 @@ def createDirectory(directory):
             os.makedirs(directory)
     except OSError:
         print("Error: Failed to create the directory.")
-
-# Dataload part
-le = preprocessing.LabelEncoder()
 
 record_list = []
 pickle_input = dict()
