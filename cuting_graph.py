@@ -1,9 +1,10 @@
-import matplotlib.pyplot as plt
-from tqdm import tqdm
-import numpy as np
 import itertools
-import pickle
 import os
+import pickle
+
+import matplotlib.pyplot as plt
+import numpy as np
+from tqdm import tqdm
 
 SAVE_PATH = "./graph_data/"
 DATA_PATH = "./mit_data/"
